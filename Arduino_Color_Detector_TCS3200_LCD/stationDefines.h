@@ -1,11 +1,11 @@
 // TCS230 or TCS3200 pins wiring to Arduino
 #define s0 6
-#define s1 4
+#define s1 5
 #define  s2  2
 #define  s3  3
-#define outPin 5
+#define outPin 4
 
-boolean DEBUG = true;
+//boolean DEBUG = true;
 
 // Variables
 int red;

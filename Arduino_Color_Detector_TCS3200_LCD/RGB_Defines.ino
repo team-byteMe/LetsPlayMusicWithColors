@@ -1,24 +1,27 @@
 
 /* Based on RGB components ==> Determine color */
-void getColor()
+int getColor(int red, int grn, int blu)
 {  
-  readRGB();
-  
-        if (red > 8 && red < 18 && grn > 9 && grn < 19 && blu > 8 && blu < 16) color = "WHITE";
-  else if (red > 80 && red < 125 && grn > 90 && grn < 125 && blu > 80 && blu < 125) color = "BLACK";
-  else if (red > 12 && red < 30 && grn > 40 && grn < 70 && blu > 33 && blu < 70) color = "RED";
-  else if (red > 50 && red < 95 && grn > 35 && grn < 70 && blu > 45 && blu < 85) color = "GREEN";
-  else if (red > 10 && red < 20 && grn > 10 && grn < 25 && blu > 20 && blu < 38) color = "YELLOW";
-  else if (red > 65 && red < 125 && grn > 65 && grn < 115 && blu > 32 && blu < 65) color = "BLUE";
-  else  color = "NO_COLOR";
+  int ans = -1;
+  //readRGB();
+  if (red > 4 && red < 10 && grn > 0 && grn <= 10 && blu > 0 && blu < 16) ans = 1;
+  else if (red >= 10 && red < 17 && grn > 10 && grn < 20 && blu > 15 && blu < 25) ans = 2;
+  else if (red > 20 && red < 30 && grn > 40 && grn < 70 && blu > 33 && blu < 70) ans = 3;
+  else if (red > 15 && red < 25 && grn > 35 && grn < 70 && blu > 45 && blu < 85) ans = 4;
+  else if (red > 10 && red < 20 && grn > 10 && grn < 25 && blu > 20 && blu < 38) ans = 5;
+  else if (red > 65 && red < 125 && grn > 65 && grn < 115 && blu > 32 && blu < 65) ans = 6;
+  else  ans = 7;
+  return ans;
 }
 
 /* read RGB components */
-void readRGB() 
+int readRGB(int s2, int s3, int outPin) 
 {
-  red = 0;
-  grn = 0;
-  blu = 0;
+
+  Serial.println("read RGB");
+    int red = 0;
+  int grn = 0;
+  int blu = 0;
   int n = 10;
   for (int i = 0; i < n; ++i)
   {
@@ -41,12 +44,9 @@ void readRGB()
   red = red/n;
   grn = grn/n;
   blu = blu/n;
-  Serial.println("New");
-  Serial.println(red);
-  Serial.println(grn);
-  Serial.println(blu);
-}
-
-
-
-
+  //Serial.println("New");
+  //Serial.println(red);
+  //Serial.println(grn);
+  //Serial.println(blu);
+  return getColor(red, grn, blu);
+  }

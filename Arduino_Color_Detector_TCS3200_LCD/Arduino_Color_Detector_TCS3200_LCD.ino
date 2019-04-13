@@ -1,8 +1,8 @@
 
-#include "stationDefines.h"
+//#include "stationDefines.h"
 
 /* LCD */
-void setup()
+/*void setup()
 {
   pinMode(s0, OUTPUT);
   pinMode(s1, OUTPUT);
@@ -25,4 +25,4 @@ void loop()
 }
 
 
-
+*/
